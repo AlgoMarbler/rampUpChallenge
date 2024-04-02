@@ -26,7 +26,7 @@
 
         }
 
-        setInterval(rampup, 200);
+
 
         function updat() {
             // Put your code to be executed every 100 milliseconds here
@@ -37,11 +37,13 @@
 
         }
 
-        setInterval(updat, 10);
 
         function addScore() {
         	score++;
-        	document.getElementById('your-display').innerHTML = "Your score: " + score;
+        	document.getElementById('your-display').innerHTML = "Your score: " + score;        	
+	        setInterval(rampup, 200);
+	        setInterval(updat, 10);
+			setTimeout(enemy, 1000);
         }
 
 		function enemy() {
@@ -51,7 +53,6 @@
 		}
 
 		// Start the execution after the initial 100 milliseconds
-		setTimeout(enemy, 1000);
 
 	</script>
 </head>
