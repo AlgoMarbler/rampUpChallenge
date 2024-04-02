@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/algom/Documents/sublime%20text/clicker%20race/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>wen yao short</title>
+	<style>
+		body {
+
+		}
+	</style>
+	<script type="text/javascript">
+		var cps = 0;
+		var currentCps = 1000;
+		var enemyScore = 0;
+		var score = 0;
+		function selectDifficulty(speed, string) {
+			document.getElementById('display-difficulty').innerHTML = string;
+			cps = speed;
+		}
+
+        function rampup() {
+            // Put your code to be executed every 100 milliseconds here
+            currentCps = (currentCps - 50) * 0.992 + 50;
+            document.getElementById('cps-display').innerHTML = "Enemy's current CPS: " + (1000/currentCps).toFixed(1);
+
+        }
+
+        setInterval(rampup, 200);
+
+        function updat() {
+            // Put your code to be executed every 100 milliseconds here
+        	document.getElementById('diff-display').innerHTML = "Score diff: " + (score - enemyScore);
+        	if(score - enemyScore < 0) {
+        		alert('you lose! your score: ' + score);
+        	}
+
+        }
+
+        setInterval(updat, 10);
+
+        function addScore() {
+        	score++;
+        	document.getElementById('your-display').innerHTML = "Your score: " + score;
+        }
+
+		function enemy() {
+			enemyScore++;
+			document.getElementById('enemy-display').innerHTML = "Enemy's score: " + enemyScore;
+		    setTimeout(enemy, currentCps);
+		}
+
+		// Start the execution after the initial 100 milliseconds
+		setTimeout(enemy, 1000);
+
+	</script>
+</head>
+<body>
+	<div style="background-color: #DDDDDD; width: 30%; height: 100%; text-align: center; font-size: 3vh;">
+		<div style="height: 5%;"> 
+			Select Mode/Difficulty: 
+			<span id="display-difficulty"></span>
+		</div>
+		<div style="height: 20vh">
+<!-- 			<button onclick="selectDifficulty(8.5, &#39;Very Easy&#39;)" style="width: 100%">Very Easy</button>
+			<button onclick="selectDifficulty(9.25, &#39;Easy&#39;)" style="width: 100%">Easy</button>
+			<button onclick="selectDifficulty(10, &#39;Medium&#39;)" style="width: 100%">Medium</button>
+			<button onclick="selectDifficulty(10.5, &#39;Hard&#39;)" style="width: 100%">Hard</button>
+			<button onclick="selectDifficulty(10.8, &#39;Very Hard&#39;)" style="width: 100%">Very Hard</button>
+			<button onclick="selectDifficulty(11.2, &#39;Asian&#39;)" style="width: 100%">Asian</button>
+			<button onclick="selectDifficulty(11.8, &#39;Super Asian&#39;)" style="width: 100%">Super Asian</button>
+			<button onclick="selectDifficulty(12.2, &#39;Chinese&#39;)" style="width: 100%">Chinese</button>
+			<button onclick="selectDifficulty(13, &#39;Hardness level of Sunny when viewing Diana&#39;)" style="width: 100%">Hardness level of Sunny when viewing Diana</button> -->
+<!-- 			<br><br>
+			<button onclick="rampUp()" style="width: 100%">Ramp Up</button> -->
+		</div>
+		<div>
+			<div id="cps-display">Enemy's current CPS: </div>
+			<div id="enemy-display">Enemy's score: </div>
+			<div id="your-display">Your score: </div>
+			<br>
+			<div id="diff-display">Score diff: </div>
+			<br><br><br><br><br><br><br>
+			<button onClick="addScore()">Click me</button>
+
+		</div>
+	</div>
+
+
+</body></html>
