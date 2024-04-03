@@ -41,6 +41,9 @@
         function addScore() {
         	score++;
         	document.getElementById('your-display').innerHTML = "Your score: " + score;        	
+        }
+
+        function start(argument) {
 	        setInterval(rampup, 200);
 	        setInterval(updat, 10);
 			setTimeout(enemy, 1000);
@@ -82,7 +85,8 @@
 			<br>
 			<div id="diff-display">Score diff: </div>
 			<br><br><br><br><br><br><br>
-			<button onClick="addScore()">Click me</button>
+			<button style="height: 5vh; width: 5vw" onClick="addScore()">Click me</button>
+			<button onClick="start()">start challenge when ur ready</button>
 
 		</div>
 	</div>
