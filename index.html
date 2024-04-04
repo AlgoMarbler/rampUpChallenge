@@ -21,7 +21,7 @@
 
         function rampup() {
             // Put your code to be executed every 100 milliseconds here
-            currentCps = (currentCps - 50) * 0.992 + 50;
+            currentCps = (currentCps - 33.3) * 0.993 + 33.3;
             document.getElementById('cps-display').innerHTML = "Enemy's current CPS: " + (1000/currentCps).toFixed(1);
 
         }
@@ -58,7 +58,7 @@
 		// Start the execution after the initial 100 milliseconds
 
 		function handleAKeyDown(event) {
-  if (event.key === 'a' || event.key === 'p') {
+  if (event.key === 'a' || event.key === 'p' || event.key === '=' || event.key === 'u' || event.key === 'j') {
     // Replace this alert with your desired action
     addScore()  }
 }
